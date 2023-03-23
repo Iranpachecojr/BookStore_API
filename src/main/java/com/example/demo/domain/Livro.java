@@ -1,9 +1,16 @@
 package com.example.demo.domain;
 
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GenerationValue;
+import javax.persistence.GenerationType;
 
+@Entity
 public class Livro {
-
+	
+	@Id
+	@GenerationValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String titulo;
 	private String nomeAutor;

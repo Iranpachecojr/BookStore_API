@@ -1,15 +1,28 @@
-
 package com.example.demo.domain;
+
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class Categoria {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GenerationValue;
+import javax.persistence.GenerationType;
+
+@Entity
+public class Categoria implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nome;
 	private String descricao;
 	
-	private List<Livro livro
+	@OneToMany(mappedBy = "Categoria")
+	private List<Livro> Livro = new ArrayList();
 
 	public Categoria() {
 		super();
@@ -70,7 +83,7 @@ public class Categoria {
 			return false;
 		Categoria other = (Categoria) obj;
 		return id == other.id;
-	}> = new ArrayList<>();
+	} >= new ArrayList<>();
 	
 	
 	
